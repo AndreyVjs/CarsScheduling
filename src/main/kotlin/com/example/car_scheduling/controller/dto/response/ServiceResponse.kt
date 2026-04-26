@@ -15,6 +15,6 @@ data class ServiceResponse (
 
     val id_employee: List<EmployeeModel>,
 
-    val work_orders: List<WorkOrderModel>
+    val work_orders: List<WorkOrderModel>?
 
 )

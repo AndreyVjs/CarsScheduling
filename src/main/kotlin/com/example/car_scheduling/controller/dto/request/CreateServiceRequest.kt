@@ -17,8 +17,8 @@ data class CreateServiceRequest (
 
     val estimated_time_service: String,
 
-    val id_employee: List<EmployeeModel>,
+    val id_employee: List<Int>,
 
-    val work_orders: List<WorkOrderModel>
+    val work_orders: List<Int>?
 
 )

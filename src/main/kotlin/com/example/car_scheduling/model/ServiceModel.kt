@@ -35,5 +35,5 @@ data class ServiceModel (
     val id_employee: List<EmployeeModel> = mutableListOf(),
 
     @ManyToMany(mappedBy = "services")
-    val work_orders: List<WorkOrderModel> = mutableListOf()
+    val work_orders: List<WorkOrderModel>? = mutableListOf()
 )

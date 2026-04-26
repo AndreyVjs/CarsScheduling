@@ -22,10 +22,10 @@ data class WorkOrderModel (
     val id_work_order: Int? = null,
 
     @Column
-    val start_date_work_order: LocalDateTime,
+    val start_date_work_order: LocalDateTime? = null,
 
     @Column
-    val end_date_work_order: LocalDateTime,
+    val end_date_work_order: LocalDateTime? = null,
 
     @Column
     val status_work_order: StatusWorkOrder,

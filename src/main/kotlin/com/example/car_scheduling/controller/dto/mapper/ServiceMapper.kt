@@ -4,10 +4,16 @@ import com.example.car_scheduling.controller.dto.request.CreateServiceRequest
 import com.example.car_scheduling.controller.dto.response.CarResponse
 import com.example.car_scheduling.controller.dto.response.ServiceResponse
 import com.example.car_scheduling.model.ServiceModel
+import com.example.car_scheduling.service.EmployeeService
+import com.example.car_scheduling.service.WorkOrderService
 import org.springframework.stereotype.Component
 
 @Component
-class ServiceMapper (){
+class ServiceMapper(
+
+    val EmployeeService: EmployeeService,
+    val WorkOrderService: WorkOrderService
+){
 
     fun toModel(request: CreateServiceRequest): ServiceModel {
 
@@ -17,8 +23,12 @@ class ServiceMapper (){
             description_service = request.description_service,
             price_service = request.price_service,
             estimated_time_service = request.estimated_time_service,
-            id_employee = request.id_employee,
-            work_orders = request.work_orders
+            id_employee = request.id_employee.map {
+                EmployeeService.getEmployeeById(it)
+            },
+            work_orders = request.work_orders?.map{
+                WorkOrderService.getWorkOrderById(it)
+            }
         )
     }
 
@@ -31,8 +41,12 @@ class ServiceMapper (){
             description_service = request.description_service,
             price_service = request.price_service,
             estimated_time_service = request.estimated_time_service,
-            id_employee = request.id_employee,
-            work_orders = request.work_orders
+            id_employee = request.id_employee.map {
+                EmployeeService.getEmployeeById(it)
+            },
+            work_orders = request.work_orders?.map{
+                WorkOrderService.getWorkOrderById(it)
+            }
         )
     }
 

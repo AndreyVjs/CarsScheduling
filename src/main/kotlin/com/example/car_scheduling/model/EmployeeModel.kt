@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.Table
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.Date
 
@@ -34,7 +35,7 @@ data class EmployeeModel (
     val entry_date_employee: LocalDateTime = LocalDateTime.now(),
 
     @Column
-    val birthday_employee: Date,
+    val birthday_employee: LocalDate,
 
     @Column
     val role_employee: String,

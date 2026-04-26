@@ -74,4 +74,15 @@ class CustomerController (
 
         return mapper.toCarsResponse(service.getAllCarsById(service.getCustomerById(id)))
     }
+
+//    @GetMapping("/login")
+//    @ResponseStatus(HttpStatus.OK)
+//    fun getLoginCustomer(
+//
+//        @RequestBody request: customerLoginRequest
+//    ) {
+//
+//         service.vericateLogin(request)
+//
+//    }
 }

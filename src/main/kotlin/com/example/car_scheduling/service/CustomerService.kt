@@ -35,4 +35,6 @@ class CustomerService(
     fun getAllCarsById(customer_id: CustomerModel): List<CarModel> {
         return repository.getAllCarsById(customer_id)
     }
+
+//    fun vericateLogin(request: customerLoginRequest) {}
 }
