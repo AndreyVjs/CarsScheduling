@@ -1,5 +1,7 @@
 package com.example.car_scheduling.service
 
+import com.example.car_scheduling.enums.Errors
+import com.example.car_scheduling.exception.NotFoundException
 import com.example.car_scheduling.model.ServiceModel
 import com.example.car_scheduling.repository.ServiceRepository
 import org.springframework.stereotype.Service
@@ -25,7 +27,7 @@ class ServiceService(
     }
 
     fun getServiceById(id: Int): ServiceModel {
-        return repository.findById(id).orElseThrow()
+        return repository.findById(id).orElseThrow{ (NotFoundException(Errors.ML401.message.format(id), Errors.ML401.errorCode)) }
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.car_scheduling.service
 
-import com.example.car_scheduling.controller.dto.request.CreateCustomerRequest
+import com.example.car_scheduling.enums.Errors
+import com.example.car_scheduling.exception.NotFoundException
 import com.example.car_scheduling.model.CarModel
 import com.example.car_scheduling.model.CustomerModel
 import com.example.car_scheduling.repository.CustomerRepository
@@ -18,6 +19,10 @@ class CustomerService(
 
     fun deleteCustomerById(id: Int) {
         repository.deleteById(id)
+
+//        if(id == null){
+//            throw
+//        }
     }
 
     fun putCustomer(model: CustomerModel) {
@@ -25,7 +30,7 @@ class CustomerService(
     }
 
     fun getCustomerById(id: Int): CustomerModel {
-        return repository.findById(id).orElseThrow()
+        return repository.findById(id).orElseThrow { (NotFoundException(Errors.ML101.message.format(id), Errors.ML101.errorCode)) } //Fazer tratamento de erro emcima desse .orElseThrow()
     }
 
     fun getAllCustomers(): List<CustomerModel> {

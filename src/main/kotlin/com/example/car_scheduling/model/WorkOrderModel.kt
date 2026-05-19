@@ -1,6 +1,6 @@
 package com.example.car_scheduling.model
 
-import com.example.car_scheduling.enum.StatusWorkOrder
+import com.example.car_scheduling.enums.StatusWorkOrder
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -9,7 +9,6 @@ import jakarta.persistence.Id
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToMany
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import java.time.LocalDateTime
 

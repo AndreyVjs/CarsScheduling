@@ -1,9 +1,7 @@
 package com.example.car_scheduling.controller.dto.mapper
 
 import com.example.car_scheduling.controller.dto.request.CreateWorkOrderRequest
-import com.example.car_scheduling.controller.dto.response.WorkOrderResponse
-import com.example.car_scheduling.enum.StatusWorkOrder
-import com.example.car_scheduling.model.ServiceModel
+import com.example.car_scheduling.enums.StatusWorkOrder
 import com.example.car_scheduling.model.WorkOrderModel
 import com.example.car_scheduling.service.CarService
 import com.example.car_scheduling.service.CustomerService

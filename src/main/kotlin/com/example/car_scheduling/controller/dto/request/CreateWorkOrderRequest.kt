@@ -1,6 +1,5 @@
 package com.example.car_scheduling.controller.dto.request
 
-import com.example.car_scheduling.enum.StatusWorkOrder
 import java.time.LocalDateTime
 
 data class CreateWorkOrderRequest (

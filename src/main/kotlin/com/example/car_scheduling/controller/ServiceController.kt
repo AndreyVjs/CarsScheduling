@@ -5,6 +5,7 @@ import com.example.car_scheduling.controller.dto.request.CreateServiceRequest
 import com.example.car_scheduling.controller.dto.response.ServiceResponse
 import com.example.car_scheduling.service.ServiceService
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("service")
+@CrossOrigin(origins = ["*"])
 class ServiceController(
 
     val service: ServiceService,

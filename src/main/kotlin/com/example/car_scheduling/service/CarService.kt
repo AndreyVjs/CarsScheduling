@@ -1,6 +1,8 @@
 package com.example.car_scheduling.service
 
 import com.example.car_scheduling.controller.dto.request.CreateCarRequest
+import com.example.car_scheduling.enums.Errors
+import com.example.car_scheduling.exception.NotFoundException
 import com.example.car_scheduling.model.CarModel
 import com.example.car_scheduling.model.CustomerModel
 import com.example.car_scheduling.repository.CarRepository
@@ -29,6 +31,6 @@ class CarService (
     }
 
     fun getCarByid(id: Int): CarModel {
-        return repository.findById(id).orElseThrow()
+        return repository.findById(id).orElseThrow{ (NotFoundException(Errors.ML201.message.format(id), Errors.ML201.errorCode)) }
     }
 }

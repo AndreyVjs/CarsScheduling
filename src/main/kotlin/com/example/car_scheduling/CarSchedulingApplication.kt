@@ -10,7 +10,6 @@ fun main(args: Array<String>) {
 	runApplication<CarSchedulingApplication>(*args)
 }
 
-
 // Customer deve ter Create, Update, Delete, GetId, GetAll, GetCars
 // Service deve ter também o crud basico
 //Car deve ser possivel Create Delete Update GetById GetAll
