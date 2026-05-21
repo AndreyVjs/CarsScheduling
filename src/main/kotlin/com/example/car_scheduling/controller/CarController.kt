@@ -5,6 +5,7 @@ import com.example.car_scheduling.controller.dto.request.CreateCarRequest
 import com.example.car_scheduling.controller.dto.response.CarResponse
 import com.example.car_scheduling.service.CarService
 import com.example.car_scheduling.service.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -28,7 +29,7 @@ class CarController (
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createCar(@RequestBody car: CreateCarRequest) {
+    fun createCar(@RequestBody @Valid car: CreateCarRequest) {
          service.createCar(mapper.toModel(car))
     }
 
@@ -46,7 +47,7 @@ class CarController (
     fun updateCarById(
 
         @PathVariable("id") id: Int,
-        @RequestBody car: CreateCarRequest
+        @RequestBody @Valid car: CreateCarRequest
     ) {
         service.updateCarById(mapper.toModelById(id,car))
     }

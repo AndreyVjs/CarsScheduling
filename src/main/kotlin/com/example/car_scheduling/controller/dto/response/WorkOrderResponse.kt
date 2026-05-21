@@ -3,6 +3,7 @@ package com.example.car_scheduling.controller.dto.response
 import com.example.car_scheduling.enums.StatusWorkOrder
 import com.example.car_scheduling.model.CarModel
 import com.example.car_scheduling.model.CustomerModel
+import com.example.car_scheduling.model.ServiceModel
 import java.time.LocalDateTime
 
 data class WorkOrderResponse (
@@ -11,5 +12,6 @@ data class WorkOrderResponse (
     val end_date_work_order: LocalDateTime,
     val status_work_order: StatusWorkOrder,
     val customer: CustomerModel,
-    val car: CarModel
+    val car: CarModel,
+    val services: List<ServiceModel>
 )

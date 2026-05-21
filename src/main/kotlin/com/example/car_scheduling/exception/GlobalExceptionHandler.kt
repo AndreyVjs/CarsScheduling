@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.context.request.WebRequest
 import com.example.car_scheduling.controller.dto.response.ErrorResponse
+import com.example.car_scheduling.controller.dto.response.FildErrorResponse
+import com.example.car_scheduling.enums.Errors
+import org.springframework.web.bind.MethodArgumentNotValidException
+import kotlin.collections.List
 
 @ControllerAdvice
 class GlobalExceptionHandler{
@@ -26,7 +30,7 @@ class GlobalExceptionHandler{
     ): ResponseEntity<ErrorResponse> {
         val erro = ErrorResponse(
 
-            404,
+            HttpStatus.NOT_FOUND.value(),
             ex.message,
             ex.errorCode,
             null
@@ -34,4 +38,28 @@ class GlobalExceptionHandler{
 
         return ResponseEntity(erro, HttpStatus.NOT_FOUND)
     }
+
+    @ExceptionHandler(MethodArgumentNotValidException::class)
+    fun MethodArgumentNotValidException (ex: MethodArgumentNotValidException, request: WebRequest): ResponseEntity<ErrorResponse>{
+
+        val erro = ErrorResponse(
+
+            HttpStatus.UNPROCESSABLE_ENTITY.value(),
+            Errors.ML001.message,
+
+            //Criei esse error code para simbolizar as Request Invalid
+            Errors.ML001.errorCode,
+
+
+            //Não entendi muito bem esse [ex.bindingResult.fieldErrors]
+            //Aparentemente o binding tem uma pá de coisa e eu só filtro os erros que no caso pode vir como uma lista
+            //Eu só pego essa lista de erros e coloco/adapto pra minha lista de erros
+            ex.bindingResult.fieldErrors.map{ FildErrorResponse(it.defaultMessage?: "Invalid", it.field) }
+
+
+        )
+
+        return ResponseEntity(erro, HttpStatus.UNPROCESSABLE_ENTITY)
+    }
+
 }

@@ -7,8 +7,10 @@ import com.example.car_scheduling.controller.dto.request.CreateWorkOrderRequest
 import com.example.car_scheduling.controller.dto.response.WorkOrderResponse
 import com.example.car_scheduling.model.WorkOrderModel
 import com.example.car_scheduling.service.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -28,20 +30,33 @@ class WorkOrderController (
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun postWorkOrder(@RequestBody request: CreateWorkOrderRequest) {
+    fun postWorkOrder(@RequestBody @Valid request: CreateWorkOrderRequest) {
 
         service.postWorkOrder(mapper.toModel(request))
     }
 
-//    @GetMapping
-//    fun getAllWorkOrder() {
-//
-//    }
-//
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    fun getAllWorkOrder(): List<WorkOrderResponse> {
+
+        return mapper.toAllResponse(service.getAllWorkOrder())
+    }
+
     @GetMapping("/id")
     @ResponseStatus(HttpStatus.OK)
     fun getWorkOrderById(@PathVariable("id") id: Int): WorkOrderModel {
 
         return service.getWorkOrderById(id)
     }
+
+    @DeleteMapping("/id")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteWOrkOrder(
+
+        @PathVariable id: Int
+    ){
+
+        service.deleteWorkOrder(id)
+    }
+
 }

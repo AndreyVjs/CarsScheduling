@@ -19,4 +19,13 @@ class WorkOrderService (
     fun getWorkOrderById(id: Int): WorkOrderModel {
         return repository.findById(id).orElseThrow{ (NotFoundException(Errors.ML501.message.format(id), Errors.ML501.errorCode)) }
     }
+
+    fun deleteWorkOrder(id: Int) {
+        repository.deleteById(id)
+    }
+
+    fun getAllWorkOrder(): List<WorkOrderModel> {
+
+        return repository.findAll()
+    }
 }

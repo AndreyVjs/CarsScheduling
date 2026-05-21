@@ -3,6 +3,7 @@ package com.example.car_scheduling.enums
 enum class Errors( val message: String, val errorCode: String) {
 
     //De 100 a 200 é X
+    ML001("Essa request é invalida!","CS-001"),
     ML101("Esse customer de id [%s] não existe!","CS-101"), //Customer
     ML201("Esse carro de id [%s] não existe!","CS-201"), //Car
     ML301("Esse employee de id [%s] não existe!","CS-301"), //Employee

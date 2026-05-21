@@ -4,6 +4,7 @@ import com.example.car_scheduling.controller.dto.mapper.EmployeeMapper
 import com.example.car_scheduling.controller.dto.request.CreateEmployeeRequest
 import com.example.car_scheduling.controller.dto.response.EmployeeResponse
 import com.example.car_scheduling.service.EmployeeService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -27,7 +28,7 @@ class EmployeeController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun createEmployee(@RequestBody request: CreateEmployeeRequest) {
+    fun createEmployee(@RequestBody @Valid request: CreateEmployeeRequest) {
         service.createEmployee(mapper.toModel(request))
     }
 
@@ -44,7 +45,7 @@ class EmployeeController(
     @ResponseStatus(HttpStatus.CREATED)
     fun updateEmployeeById(
 
-        @RequestBody request: CreateEmployeeRequest,
+        @RequestBody @Valid request: CreateEmployeeRequest,
         @PathVariable("id") id: Int) {
 
         service.updateEmployeeById(mapper.toModelById(request,id))

@@ -13,7 +13,7 @@ class CustomerMapper {
     fun toModel (request: CreateCustomerRequest): CustomerModel {
         return CustomerModel(
             name_customer = request.name_customer,
-            telefone_customer = request.telefone_customer,
+            telefone_customer = request.telefone_customer!!,
             email_customer = request.email_customer
         )
     }
@@ -22,7 +22,7 @@ class CustomerMapper {
         return CustomerModel(
             id_customer = id,
             name_customer = request.name_customer,
-            telefone_customer = request.telefone_customer,
+            telefone_customer = request.telefone_customer!!,
             email_customer = request.email_customer
         )
     }

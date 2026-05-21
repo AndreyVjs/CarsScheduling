@@ -1,11 +1,19 @@
 package com.example.car_scheduling.controller.dto.mapper
 
 import com.example.car_scheduling.controller.dto.request.CreateWorkOrderRequest
+import com.example.car_scheduling.controller.dto.response.WorkOrderResponse
 import com.example.car_scheduling.enums.StatusWorkOrder
+import com.example.car_scheduling.model.CarModel
+import com.example.car_scheduling.model.CustomerModel
+import com.example.car_scheduling.model.ServiceModel
 import com.example.car_scheduling.model.WorkOrderModel
 import com.example.car_scheduling.service.CarService
 import com.example.car_scheduling.service.CustomerService
 import com.example.car_scheduling.service.ServiceService
+import jakarta.persistence.Column
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToMany
+import jakarta.persistence.ManyToOne
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
 
@@ -52,11 +60,25 @@ class WorkOrderMapper (
         }
     }
 
-//    fun toResponse(model: WorkOrderModel): WorkOrderResponse{
-//
-//        WorkOrderResponse(
-//
-//
-//        )
-//    }
+    fun toAllResponse(model: List<WorkOrderModel>): List<WorkOrderResponse>{
+
+
+        return model.map {
+
+            WorkOrderResponse(
+
+             it.start_date_work_order!!,
+
+             it.end_date_work_order!!,
+
+             it.status_work_order,
+
+             it.customer,
+
+             it.car,
+
+             it.services
+            )
+        }
+    }
 }

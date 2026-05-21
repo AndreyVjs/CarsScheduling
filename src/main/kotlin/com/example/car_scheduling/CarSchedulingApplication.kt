@@ -19,3 +19,5 @@ fun main(args: Array<String>) {
 //E um repository so gerencis dus propria entidade não da pra chamar um no outro
 
 //Arrumar o ManyToMany de employee com service
+
+//Adicionei os @Valid nos inputs e fiz getAll e deleteById em WorkOrderController

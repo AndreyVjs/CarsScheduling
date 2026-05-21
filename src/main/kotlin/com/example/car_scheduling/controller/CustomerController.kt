@@ -4,8 +4,8 @@ import com.example.car_scheduling.controller.dto.mapper.CustomerMapper
 import com.example.car_scheduling.controller.dto.request.CreateCustomerRequest
 import com.example.car_scheduling.controller.dto.response.CarResponse
 import com.example.car_scheduling.controller.dto.response.GetCustomerResponse
-import com.example.car_scheduling.model.CustomerModel
 import com.example.car_scheduling.service.CustomerService
+import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -29,7 +29,7 @@ class CustomerController (
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    fun createCustomer(@RequestBody request: CreateCustomerRequest) {
+    fun createCustomer(@RequestBody @Valid request: CreateCustomerRequest) {
         service.createCustomer(mapper.toModel(request))
     }
 
@@ -47,7 +47,7 @@ class CustomerController (
     @ResponseStatus(HttpStatus.OK)
     fun putCustomer(
         @PathVariable("id") id: Int,
-        @RequestBody request: CreateCustomerRequest
+        @RequestBody @Valid request: CreateCustomerRequest
     ) {
         service.putCustomer(mapper.toModelById(request, id))
     }
