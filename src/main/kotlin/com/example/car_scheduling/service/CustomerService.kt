@@ -41,5 +41,9 @@ class CustomerService(
         return repository.getAllCarsById(customer_id)
     }
 
+    fun existsByEmailCustomer(emailCustomer: String): Boolean {
+        return !repository.existsByEmailCustomer(emailCustomer)
+    }
+
 //    fun vericateLogin(request: customerLoginRequest) {}
 }

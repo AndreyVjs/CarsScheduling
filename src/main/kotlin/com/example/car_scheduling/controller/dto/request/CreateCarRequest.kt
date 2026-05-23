@@ -15,6 +15,7 @@ data class CreateCarRequest (
     @field:NotBlank
     val mark_car: String,
 
+    //Tem que ter um car avaliable aqui
     @field:NotBlank
     val plate_car: String,
 

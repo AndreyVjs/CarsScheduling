@@ -9,19 +9,20 @@ import jakarta.persistence.OneToMany
 
 @Entity(name = "customer")
 data class CustomerModel (
-
+//    @Column("id_customer")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_customer: Int? = null,
+    @Column(name="id_customer")
+    val idCustomer: Int? = null,
 
-    @Column
-    val name_customer: String,
+    @Column(name = "name_customer")
+    val nameCustomer: String,
 
-    @Column
-    val telefone_customer: Int,
+    @Column(name = "telefone_customer")
+    val telefoneCustomer: Int,
 
-    @Column
-    val email_customer: String,
+    @Column(name = "email_customer")
+    val emailCustomer: String,
 
     //OneToMany dis Um "DONO" para Muitos ...
     //mappedBy diz que isso tá referenciando a var customer lá em CarModel (Essa mesma com os Notatetions configurando)

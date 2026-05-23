@@ -1,5 +1,6 @@
 package com.example.car_scheduling.controller.dto.request
 
+import com.example.car_scheduling.validation.EmailAvaliable
 import jakarta.persistence.Column
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotNull
@@ -15,7 +16,7 @@ data class CreateEmployeeRequest (
     @field: NotBlank
     val telefone_employee: String,
 
-    @field: NotBlank
+    @EmailAvaliable
     val email_employee: String,
 
     @field: NotNull

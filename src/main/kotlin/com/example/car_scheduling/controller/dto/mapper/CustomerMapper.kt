@@ -12,26 +12,26 @@ class CustomerMapper {
 
     fun toModel (request: CreateCustomerRequest): CustomerModel {
         return CustomerModel(
-            name_customer = request.name_customer,
-            telefone_customer = request.telefone_customer!!,
-            email_customer = request.email_customer
+            nameCustomer = request.nameCustomer,
+            telefoneCustomer = request.telefoneCustomer!!,
+            emailCustomer = request.emailCustomer
         )
     }
 
     fun toModelById (request: CreateCustomerRequest, id: Int): CustomerModel {
         return CustomerModel(
-            id_customer = id,
-            name_customer = request.name_customer,
-            telefone_customer = request.telefone_customer!!,
-            email_customer = request.email_customer
+            idCustomer = id,
+            nameCustomer = request.nameCustomer,
+            telefoneCustomer = request.telefoneCustomer!!,
+            emailCustomer = request.emailCustomer
         )
     }
 
     fun toResponse(model: CustomerModel): GetCustomerResponse {
         return GetCustomerResponse(
-            name_customer = model.name_customer,
-            email_customer = model.email_customer,
-            telefone_customer = model.telefone_customer
+            nameCustomer = model.nameCustomer,
+            emailCustomer = model.emailCustomer,
+            telefoneCustomer = model.telefoneCustomer
         )
     }
 
@@ -40,9 +40,9 @@ class CustomerMapper {
         return customer.map {
 
             GetCustomerResponse(
-                name_customer = it.name_customer,
-                email_customer = it.email_customer,
-                telefone_customer = it.telefone_customer
+                nameCustomer = it.nameCustomer,
+                emailCustomer = it.emailCustomer,
+                telefoneCustomer = it.telefoneCustomer
             )
         }
     }
