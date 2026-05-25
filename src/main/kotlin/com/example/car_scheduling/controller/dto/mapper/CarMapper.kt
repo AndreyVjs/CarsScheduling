@@ -15,22 +15,22 @@ class CarMapper (
     fun toModel(request: CreateCarRequest): CarModel {
 
         return CarModel(
-            name_car = request.name_car,
-            color = request.color,
-            mark_car = request.mark_car,
-            plate_car = request.plate_car,
-            customer_id = customerService.getCustomerById(request.customer_id)
+            nameCar = request.nameCar,
+            colorCar = request.colorCar,
+            markCar = request.markCar,
+            plateCar = request.plateCar,
+            idCustomer = customerService.getCustomerById(request.idCustomer)
         )
     }
 
     fun toModelById(id: Int, request: CreateCarRequest): CarModel {
 
         return CarModel(
-        name_car = request.name_car,
-        color = request.color,
-        mark_car = request.mark_car,
-        plate_car = request.plate_car,
-        customer_id = customerService.getCustomerById(id)
+            nameCar = request.nameCar,
+            colorCar = request.colorCar,
+            markCar = request.markCar,
+            plateCar = request.plateCar,
+            idCustomer = customerService.getCustomerById(id)
         )
     }
 
@@ -40,10 +40,10 @@ class CarMapper (
 
             CarResponse(
 
-                name_car = it.name_car,
-                color = it.color,
-                mark_car = it.mark_car,
-                plate_car = it.plate_car
+                nameCar = it.nameCar,
+                colorCar = it.colorCar,
+                markCar = it.markCar,
+                plateCar = it.plateCar
             )
         }
     }
@@ -52,10 +52,10 @@ class CarMapper (
 
         return CarResponse(
 
-            name_car = car.name_car,
-            color = car.color,
-            mark_car = car.mark_car,
-            plate_car = car.plate_car
+            nameCar = car.nameCar,
+            colorCar = car.colorCar,
+            markCar = car.markCar,
+            plateCar = car.plateCar
         )
     }
 }

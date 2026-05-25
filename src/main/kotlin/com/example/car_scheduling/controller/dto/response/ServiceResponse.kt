@@ -5,16 +5,16 @@ import com.example.car_scheduling.model.WorkOrderModel
 
 data class ServiceResponse (
 
-    val name_service: String,
+    val nameService: String,
 
-    val description_service: String,
+    val descriptionService: String,
 
-    val price_service: Float,
+    val priceService: Float,
 
-    val estimated_time_service: String,
+    val estimatedTimeService: String,
 
-    val id_employee: List<EmployeeModel>,
+    val idEmployee: List<EmployeeModel>,
 
-    val work_orders: List<WorkOrderModel>?
+    val workOrders: List<WorkOrderModel>?
 
 )

@@ -16,26 +16,26 @@ data class CarModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_car: Int? = null,
+    val idCar: Int? = null,
 
-    @Column
-    val name_car: String,
+    @Column(name = "name_car")
+    val nameCar: String,
 
-    @Column
-    val color: String,
+    @Column(name = "color")
+    val colorCar: String,
 
-    @Column
-    val mark_car: String,
+    @Column(name = "mark_car")
+    val markCar: String,
 
-    @Column
-    val plate_car: String,
+    @Column(name = "plate_car")
+    val plateCar: String,
 
     @ManyToOne()
-    @JoinColumn(name = "customer_id")
-    val customer_id: CustomerModel,
+    @JoinColumn(name = "idCustomer")
+    val idCustomer: CustomerModel,
 
     @OneToMany(mappedBy = "car")
-    val work_orders: List<WorkOrderModel> = mutableListOf()
+    val workOrders: List<WorkOrderModel> = mutableListOf()
 
 
 )

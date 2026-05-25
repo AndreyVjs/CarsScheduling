@@ -19,14 +19,14 @@ class ServiceMapper(
 
         return ServiceModel(
 
-            name_service = request.name_service,
-            description_service = request.description_service,
-            price_service = request.price_service,
-            estimated_time_service = request.estimated_time_service,
-            id_employee = request.id_employee.map {
+            nameService = request.nameService,
+            descriptionService = request.descriptionService,
+            priceService = request.priceService,
+            estimatedTimeService = request.estimatedTimeService,
+            idEmployee = request.idEmployee.map {
                 EmployeeService.getEmployeeById(it)
             },
-            work_orders = request.work_orders?.map{
+            workOrders = request.workOrders?.map{
                 WorkOrderService.getWorkOrderById(it)
             }
         )
@@ -36,15 +36,15 @@ class ServiceMapper(
 
         return ServiceModel(
 
-            id_service = id,
-            name_service = request.name_service,
-            description_service = request.description_service,
-            price_service = request.price_service,
-            estimated_time_service = request.estimated_time_service,
-            id_employee = request.id_employee.map {
+            idService = id,
+            nameService = request.nameService,
+            descriptionService = request.descriptionService,
+            priceService = request.priceService,
+            estimatedTimeService = request.estimatedTimeService,
+            idEmployee = request.idEmployee.map {
                 EmployeeService.getEmployeeById(it)
             },
-            work_orders = request.work_orders?.map{
+            workOrders = request.workOrders?.map{
                 WorkOrderService.getWorkOrderById(it)
             }
         )
@@ -56,12 +56,12 @@ class ServiceMapper(
 
             ServiceResponse(
 
-                name_service = it.name_service,
-                description_service = it.description_service,
-                price_service = it.price_service,
-                estimated_time_service = it.estimated_time_service,
-                id_employee = it.id_employee,
-                work_orders = it.work_orders
+                nameService = it.nameService,
+                descriptionService = it.descriptionService,
+                priceService = it.priceService,
+                estimatedTimeService = it.estimatedTimeService,
+                idEmployee = it.idEmployee,
+                workOrders = it.workOrders
             )
         }
     }
@@ -70,12 +70,12 @@ class ServiceMapper(
 
         return ServiceResponse(
 
-            name_service = service.name_service,
-            description_service = service.description_service,
-            price_service = service.price_service,
-            estimated_time_service = service.estimated_time_service,
-            id_employee = service.id_employee,
-            work_orders = service.work_orders
+            nameService = service.nameService,
+            descriptionService = service.descriptionService,
+            priceService = service.priceService,
+            estimatedTimeService = service.estimatedTimeService,
+            idEmployee = service.idEmployee,
+            workOrders = service.workOrders
         )
     }
 }

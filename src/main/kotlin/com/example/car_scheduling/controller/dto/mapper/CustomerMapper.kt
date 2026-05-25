@@ -53,10 +53,10 @@ class CustomerMapper {
 
             CarResponse(
 
-                name_car = it.name_car,
-                color = it.color,
-                mark_car = it.mark_car,
-                plate_car = it.plate_car
+                nameCar = it.nameCar,
+                colorCar = it.colorCar,
+                markCar = it.markCar,
+                plateCar = it.plateCar
             )
         }
     }

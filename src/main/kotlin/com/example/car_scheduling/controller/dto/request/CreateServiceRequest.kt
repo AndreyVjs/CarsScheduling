@@ -12,21 +12,21 @@ import jakarta.validation.constraints.NotNull
 data class CreateServiceRequest (
 
     @field: NotBlank
-    val name_service: String,
+    val nameService: String,
 
     @field: NotBlank
-    val description_service: String,
+    val descriptionService: String,
 
     @field: NotNull
-    val price_service: Float,
+    val priceService: Float,
 
     @field: NotBlank
-    val estimated_time_service: String,
+    val estimatedTimeService: String,
 
     @field: NotNull
-    val id_employee: List<Int>,
+    val idEmployee: List<Int>,
 
     @field: NotNull
-    val work_orders: List<Int>?
+    val workOrders: List<Int>?
 
 )

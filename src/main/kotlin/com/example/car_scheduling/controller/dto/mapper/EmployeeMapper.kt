@@ -12,12 +12,12 @@ class EmployeeMapper {
 
         return EmployeeModel(
 
-            name_employee = request.name_employee,
-            telefone_employee = request.telefone_employee,
-            email_employee = request.email_employee,
-            salary_employee = request.salary_employee,
-            birthday_employee = request.birthday_employee,
-            role_employee = request.role_employee
+            nameEmployee = request.nameEmployee,
+            telefoneEmployee = request.telefoneEmployee,
+            emailEmployee = request.emailEmployee,
+            salaryEmployee = request.salaryEmployee,
+            birthdayEmployee = request.birthdayEmployee,
+            roleEmployee = request.roleEmployee
         )
     }
 
@@ -25,13 +25,13 @@ class EmployeeMapper {
 
         return EmployeeModel(
 
-            id_employee = id,
-            name_employee = request.name_employee,
-            telefone_employee = request.telefone_employee,
-            email_employee = request.email_employee,
-            salary_employee = request.salary_employee,
-            birthday_employee = request.birthday_employee,
-            role_employee = request.role_employee
+            idEmployee = id,
+            nameEmployee = request.nameEmployee,
+            telefoneEmployee = request.telefoneEmployee,
+            emailEmployee = request.emailEmployee,
+            salaryEmployee = request.salaryEmployee,
+            birthdayEmployee = request.birthdayEmployee,
+            roleEmployee = request.roleEmployee
         )
     }
 
@@ -41,12 +41,12 @@ class EmployeeMapper {
 
             EmployeeResponse(
 
-                name_employee = it.name_employee,
-                telefone_employee = it.telefone_employee,
-                email_employee = it.email_employee,
-                salary_employee = it.salary_employee,
-                birthday_employee = it.birthday_employee,
-                role_employee = it.role_employee
+                nameEmployee = it.nameEmployee,
+                telefoneEmployee = it.telefoneEmployee,
+                emailEmployee = it.emailEmployee,
+                salaryEmployee = it.salaryEmployee,
+                birthdayEmployee = it.birthdayEmployee,
+                roleEmployee = it.roleEmployee
             )
         }
     }
@@ -54,12 +54,12 @@ class EmployeeMapper {
     fun toResponseById(model: EmployeeModel): EmployeeResponse {
 
         return EmployeeResponse(
-            name_employee = model.name_employee,
-            telefone_employee = model.telefone_employee,
-            email_employee = model.email_employee,
-            salary_employee = model.salary_employee,
-            birthday_employee = model.birthday_employee,
-            role_employee = model.role_employee
+            nameEmployee = model.nameEmployee,
+            telefoneEmployee = model.telefoneEmployee,
+            emailEmployee = model.emailEmployee,
+            salaryEmployee = model.salaryEmployee,
+            birthdayEmployee = model.birthdayEmployee,
+            roleEmployee = model.roleEmployee
 
         )
     }

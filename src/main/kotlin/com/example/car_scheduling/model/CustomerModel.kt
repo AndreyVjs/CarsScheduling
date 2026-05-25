@@ -27,9 +27,9 @@ data class CustomerModel (
     //OneToMany dis Um "DONO" para Muitos ...
     //mappedBy diz que isso tá referenciando a var customer lá em CarModel (Essa mesma com os Notatetions configurando)
 
-    @OneToMany(mappedBy = "customer_id")
+    @OneToMany(mappedBy = "idCustomer")
     val vehicles: List<CarModel> = mutableListOf(),
 
     @OneToMany(mappedBy = "customer")
-    val work_orders: List<WorkOrderModel> = mutableListOf()
+    val workOrders: List<WorkOrderModel> = mutableListOf()
 )

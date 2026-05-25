@@ -17,31 +17,31 @@ data class EmployeeModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_employee: Int? = null,
+    val idEmployee: Int? = null,
 
     @Column
-    val name_employee: String,
+    val nameEmployee: String,
 
     @Column
-    val telefone_employee: String,
+    val telefoneEmployee: String,
 
     @Column
-    val email_employee: String,
+    val emailEmployee: String,
 
     @Column
-    val salary_employee: Float,
+    val salaryEmployee: Float,
 
     @Column(updatable = false)
-    val entry_date_employee: LocalDateTime = LocalDateTime.now(),
+    val entryDateEmployee: LocalDateTime = LocalDateTime.now(),
 
     @Column
-    val birthday_employee: LocalDate,
+    val birthdayEmployee: LocalDate,
 
     @Column
-    val role_employee: String,
+    val roleEmployee: String,
 
-    @ManyToMany(mappedBy = "id_employee")
-    val service: List<ServiceModel> = mutableListOf()
+    @ManyToMany(mappedBy = "idEmployee")
+    val services: List<ServiceModel> = mutableListOf()
 
 
 )

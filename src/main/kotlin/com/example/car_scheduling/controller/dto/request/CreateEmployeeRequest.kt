@@ -11,20 +11,20 @@ import java.util.Date
 data class CreateEmployeeRequest (
 
     @field: NotBlank
-    val name_employee: String,
+    val nameEmployee: String,
 
     @field: NotBlank
-    val telefone_employee: String,
+    val telefoneEmployee: String,
 
     @EmailAvaliable
-    val email_employee: String,
+    val emailEmployee: String,
 
     @field: NotNull
-    val salary_employee: Float,
+    val salaryEmployee: Float,
 
     @field: NotNull
-    val birthday_employee: LocalDate,
+    val birthdayEmployee: LocalDate,
 
     @field:NotBlank
-    val role_employee: String
+    val roleEmployee: String
 )

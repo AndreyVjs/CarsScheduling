@@ -33,4 +33,8 @@ class CarService (
     fun getCarByid(id: Int): CarModel {
         return repository.findById(id).orElseThrow{ (NotFoundException(Errors.ML201.message.format(id), Errors.ML201.errorCode)) }
     }
+
+    fun existsByPlateCar(plateCar: String): Boolean{
+        return !repository.existsByPlateCar(plateCar)
+    }
 }

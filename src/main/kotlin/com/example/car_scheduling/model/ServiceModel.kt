@@ -17,23 +17,23 @@ data class ServiceModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_service: Int? = null,
+    val idService: Int? = null,
 
     @Column
-    val name_service: String,
+    val nameService: String,
 
     @Column
-    val description_service: String,
+    val descriptionService: String,
 
     @Column
-    val price_service: Float,
+    val priceService: Float,
 
     @Column
-    val estimated_time_service: String,
+    val estimatedTimeService: String,
 
     @ManyToMany()
-    val id_employee: List<EmployeeModel> = mutableListOf(),
+    val idEmployee: List<EmployeeModel> = mutableListOf(),
 
     @ManyToMany(mappedBy = "services")
-    val work_orders: List<WorkOrderModel>? = mutableListOf()
+    val workOrders: List<WorkOrderModel>? = mutableListOf()
 )

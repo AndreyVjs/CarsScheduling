@@ -5,10 +5,10 @@ import java.util.Date
 
 data class EmployeeResponse (
 
-    val name_employee: String,
-    val telefone_employee: String,
-    val email_employee: String,
-    val salary_employee: Float,
-    val birthday_employee: LocalDate,
-    val role_employee: String
+    val nameEmployee: String,
+    val telefoneEmployee: String,
+    val emailEmployee: String,
+    val salaryEmployee: Float,
+    val birthdayEmployee: LocalDate,
+    val roleEmployee: String
 )

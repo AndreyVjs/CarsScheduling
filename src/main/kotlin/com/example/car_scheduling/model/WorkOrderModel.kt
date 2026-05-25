@@ -18,24 +18,24 @@ data class WorkOrderModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_work_order: Int? = null,
+    val idWorkOrder: Int? = null,
 
     @Column
-    val start_date_work_order: LocalDateTime? = null,
+    val startDateWorkOrder: LocalDateTime? = null,
 
     @Column
-    val end_date_work_order: LocalDateTime? = null,
+    val endDateWorkOrder: LocalDateTime? = null,
 
     @Column
-    val status_work_order: StatusWorkOrder,
+    val statusWorkOrder: StatusWorkOrder,
 
     //Uma ordem para muitos clients/serviços/carros
     @ManyToOne()
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "idCustomer")
     val customer: CustomerModel,
 
     @ManyToOne()
-    @JoinColumn(name = "id_car")
+    @JoinColumn(name = "idCar")
     val car: CarModel,
 
     @ManyToMany()

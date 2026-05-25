@@ -1,6 +1,7 @@
 package com.example.car_scheduling.controller.dto.mapper
 
 import com.example.car_scheduling.controller.dto.request.CreateWorkOrderRequest
+import com.example.car_scheduling.controller.dto.request.PutWorkOrderRequest
 import com.example.car_scheduling.controller.dto.response.WorkOrderResponse
 import com.example.car_scheduling.enums.StatusWorkOrder
 import com.example.car_scheduling.model.CarModel
@@ -10,6 +11,7 @@ import com.example.car_scheduling.model.WorkOrderModel
 import com.example.car_scheduling.service.CarService
 import com.example.car_scheduling.service.CustomerService
 import com.example.car_scheduling.service.ServiceService
+import com.example.car_scheduling.service.WorkOrderService
 import jakarta.persistence.Column
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToMany
@@ -22,23 +24,24 @@ class WorkOrderMapper (
 
     val CustomerService: CustomerService,
     val CarService: CarService,
-    val ServiceService: ServiceService
+    val ServiceService: ServiceService,
+    val WorkOrderService: WorkOrderService
 ){
 
     fun toModel(request : CreateWorkOrderRequest): WorkOrderModel {
 
-        if (request.start_date_work_order == null){
+        if (request.startDateWorkOrder == null){
 
             var dateNow = LocalDateTime.now()
             var status = StatusWorkOrder.INICIO
 
             return WorkOrderModel(
 
-                start_date_work_order = dateNow,
-                status_work_order = status,
-                customer = CustomerService.getCustomerById(request.id_customer),
-                car = CarService.getCarByid(request.id_car),
-                services = request.id_service.map {
+                startDateWorkOrder = dateNow,
+                statusWorkOrder = status,
+                customer = CustomerService.getCustomerById(request.idCustomer),
+                car = CarService.getCarByid(request.idCar),
+                services = request.idService.map {
                     ServiceService.getServiceById(it)
                 }
             )
@@ -49,11 +52,11 @@ class WorkOrderMapper (
 
             return WorkOrderModel(
 
-                start_date_work_order = request.start_date_work_order,
-                status_work_order = status,
-                customer = CustomerService.getCustomerById(request.id_customer),
-                car = CarService.getCarByid(request.id_car),
-                services = request.id_service.map {
+                startDateWorkOrder = request.startDateWorkOrder,
+                statusWorkOrder = status,
+                customer = CustomerService.getCustomerById(request.idCustomer),
+                car = CarService.getCarByid(request.idCar),
+                services = request.idService.map {
                     ServiceService.getServiceById(it)
                 }
             )
@@ -67,11 +70,11 @@ class WorkOrderMapper (
 
             WorkOrderResponse(
 
-             it.start_date_work_order!!,
+             it.startDateWorkOrder!!,
 
-             it.end_date_work_order!!,
+             it.endDateWorkOrder!!,
 
-             it.status_work_order,
+             it.statusWorkOrder,
 
              it.customer,
 
@@ -80,5 +83,44 @@ class WorkOrderMapper (
              it.services
             )
         }
+    }
+
+    fun toModelById(id: Int, request: PutWorkOrderRequest): WorkOrderModel {
+
+        if (request.idService == null || request.idCar == null || request.idCustomer == null) {
+
+            var wordOrder = WorkOrderService.getWorkOrderById(id)
+
+            return WorkOrderModel(
+
+                idWorkOrder = wordOrder.idWorkOrder,
+
+                startDateWorkOrder = wordOrder.startDateWorkOrder,
+
+                endDateWorkOrder = wordOrder.endDateWorkOrder,
+
+                statusWorkOrder = request.statusWorkOrder,
+
+                customer = wordOrder.customer,
+
+                car = wordOrder.car,
+
+                services = wordOrder.services
+            )
+
+        } else {
+
+            return WorkOrderModel(
+
+                idWorkOrder = id,
+                statusWorkOrder = request.statusWorkOrder,
+                customer = CustomerService.getCustomerById(request.idCustomer!!),
+                car = CarService.getCarByid(request.idCar!!),
+                services = request.idService!!.map {
+                    ServiceService.getServiceById(it)
+                }
+            )
+        }
+
     }
 }

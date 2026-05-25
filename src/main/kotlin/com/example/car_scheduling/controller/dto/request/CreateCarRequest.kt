@@ -1,5 +1,6 @@
 package com.example.car_scheduling.controller.dto.request
 
+import com.example.car_scheduling.validation.PlateAvaliable
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
@@ -7,18 +8,19 @@ import jakarta.validation.constraints.NotNull
 data class CreateCarRequest (
 
     @field:NotBlank
-    val name_car: String,
+    val nameCar: String,
 
     @field:NotBlank
-    val color: String,
+    val colorCar: String,
 
     @field:NotBlank
-    val mark_car: String,
+    val markCar: String,
 
     //Tem que ter um car avaliable aqui
-    @field:NotBlank
-    val plate_car: String,
+
+    @PlateAvaliable
+    val plateCar: String,
 
     @field:NotNull
-    val customer_id: Int
+    val idCustomer: Int
 )

@@ -5,14 +5,14 @@ import java.time.LocalDateTime
 
 data class CreateWorkOrderRequest (
 
-    var start_date_work_order: LocalDateTime?,
+    var startDateWorkOrder: LocalDateTime?,
 
     @field: NotNull
-    var id_car: Int,
+    var idCar: Int,
 
     @field: NotNull
-    var id_service: List<Int>,
+    var idService: List<Int>,
 
     @field: NotNull
-    var id_customer: Int,
+    var idCustomer: Int,
 )
