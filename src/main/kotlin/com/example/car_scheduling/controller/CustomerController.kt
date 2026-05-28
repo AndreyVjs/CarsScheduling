@@ -6,6 +6,8 @@ import com.example.car_scheduling.controller.dto.response.CarResponse
 import com.example.car_scheduling.controller.dto.response.GetCustomerResponse
 import com.example.car_scheduling.service.CustomerService
 import jakarta.validation.Valid
+import org.springframework.context.ApplicationEvent
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
